@@ -29,7 +29,8 @@ yarn-error.log*
 .LSOverride
 
 # Icon must end with two \r
-Icon
+Icon
+
 
 # Thumbnails
 ._*
@@ -122,4 +123,4 @@ typings/
 .env
 
 
-
+src/firebase/config.js

@@ -1,18 +1,39 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import firebase from './firebase'
 import './App.css';
 
 class App extends Component {
+  state = {
+    user: null
+  }
+
+  componentDidMount() {
+    firebase.auth().onAuthStateChanged(user => {
+      this.setState({ user })
+    })
+  }
+
+  login() {
+    const provider = new firebase.auth.GoogleAuthProvider()
+    firebase.auth().signInWithRedirect(provider)
+  }
+
+  logout() {
+    firebase.auth().signOut()
+  }
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
         <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
+          UID: {this.state.user && this.state.user.uid}
         </p>
+
+        {this.state.user ? (
+          <button onClick={this.logout}>Google Logout</button>
+        ) : (
+          <button onClick={this.login}>Google Login</button>
+        )}
       </div>
     );
   }
