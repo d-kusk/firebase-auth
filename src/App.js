@@ -26,7 +26,7 @@ class App extends Component {
     return (
       <div className="App">
         <p className="App-intro">
-          UID: {this.state.user && this.state.user.uid}
+          UID: {this.state.user && this.state.user.displayName}
         </p>
 
         {this.state.user ? (

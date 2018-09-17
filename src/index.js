@@ -1,8 +1,20 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
-import App from './App'
-import registerServiceWorker from './registerServiceWorker'
+import { Provider } from 'react-redux'
+import { createStore, applyMiddleware } from 'redux'
+import rootReducer from './reducers'
+import AppContainer from './containers/AppContainer'
 
-ReactDOM.render(<App />, document.getElementById('root'))
-registerServiceWorker()
+const store = applyMiddleware()(createStore)(
+  rootReducer,
+  window.devToolsExtension && window.devToolsExtension()
+)
+
+ReactDOM.render(
+  <Provider store={store}>
+    <AppContainer />
+  </Provider>,
+  document.getElementById('root')
+)
+// registerServiceWorker()
