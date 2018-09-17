@@ -1,3 +1,5 @@
+import { LOGIN_OK, LOGOUT } from '../actions/auth'
+
 const initialState = {
   uid: null,
   diaplayName: null,
@@ -7,7 +9,7 @@ const initialState = {
 
 const auth = (state = initialState, action) => {
   switch (action.type) {
-    case 'LOGIN_OK': {
+    case LOGIN_OK: {
       return Object.assign({}, state, {
         uid: action.payload.uid,
         displayName: action.payload.displayName,
@@ -16,7 +18,7 @@ const auth = (state = initialState, action) => {
       })
     }
 
-    case 'LOGOUT': {
+    case LOGOUT: {
       return Object.assign({}, state, initialState)
     }
 

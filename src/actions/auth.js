@@ -1,5 +1,7 @@
-export const LOGIN_OK = 'LOGIN_OK'
-export const LOGOUT = 'LOGOUT'
+const LOGIN_OK = 'LOGIN_OK'
+const LOGOUT = 'LOGOUT'
+
+export { LOGIN_OK, LOGOUT }
 
 export const loginOk = user => {
   console.log('user', user)
