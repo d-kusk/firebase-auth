@@ -6,7 +6,8 @@ import { logOut } from '../actions/auth'
 const mapStateToProps = state => {
   return {
     uid: state.auth.uid,
-    displayName: state.auth.displayName
+    displayName: state.auth.displayName,
+    photo: state.auth.photo
   }
 }
 

@@ -1,6 +1,7 @@
 const initialState = {
   uid: null,
   diaplayName: null,
+  photo: null,
   email: null
 }
 
@@ -10,16 +11,13 @@ const auth = (state = initialState, action) => {
       return Object.assign({}, state, {
         uid: action.payload.uid,
         displayName: action.payload.displayName,
+        photo: action.payload.photo,
         email: action.payload.email
       })
     }
 
     case 'LOGOUT': {
-      return Object.assign({}, state, {
-        uid: null,
-        displayName: null,
-        email: null
-      })
+      return Object.assign({}, state, initialState)
     }
 
     default: {
